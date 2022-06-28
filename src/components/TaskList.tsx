@@ -38,7 +38,15 @@ export function TaskList() {
       task.id === id ? {
         ...task, isComplete: !task.isComplete
       }: task
-    ); 
+    );
+    
+    tasks.map(task => {
+      if (task.isComplete) {
+        setConcludedTasks(concludedTasks - 1);
+      } else {
+        setConcludedTasks(concludedTasks + 1);
+      }
+    });
     
     setTasks(newTasks);
   }
@@ -101,9 +109,9 @@ export function TaskList() {
                 type="checkbox"
                 readOnly
                 checked={task.isComplete}
-                onClick={() => handleToggleTaskCompletion(task.id)} 
+                onClick={() => handleToggleTaskCompletion(task.id)}
               />
-              <p className={task.isComplete ? 'completed' : ''}>{task.title}</p>
+              <p>{task.title}</p>
               <a onClick={() => handleRemoveTask(task.id)}><img src={trash} alt="Trash" /></a>
             </li>
           ))}
