@@ -5,6 +5,13 @@
 ### Nessa aplicação fui desfiado a fazer uma lista de tarefas, podendo remover ou marcar como concluída alguma tarefa, 
 nela eu adicionei uma responsividade mobile e desktop.
 
+## Nela contém: 
+- ✔️ Função para apagar tarefas.
+- ✔️ Função para criar novas tarefas.
+- ✔️ Função para marcar uma tarefa como concluída.
+- ✔️ Quantidade de tarefas criadas e tarefas concluídas de acordo com o tanto máximo de tarefas.
+- ✔️ Responsividade
+
 ## Como executar
 ### Para executar a aplicação siga esses passos:
 - Dê um 'git clone "url da aplicação"'
