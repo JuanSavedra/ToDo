@@ -2,7 +2,7 @@ import plus from '../assets/plus.svg';
 import trash from '../assets/trash.svg';
 import styles from './TaskList.module.css';
 import clipboard from '../assets/Clipboard.svg';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
 interface Task {
@@ -33,12 +33,29 @@ export function TaskList() {
     setHaveTask(true);
   }
 
-  function handleToggleTaskCompletion(id: number) {
+  function handleToggleTaskCompletion(id: string) {
+    const newTasks = tasks.map(task => 
+      task.id === id ? {
+        ...task, isComplete: !task.isComplete
+      }: task
+    ); 
     
+    setTasks(newTasks);
   }
 
-  function handleRemoveTask(id: number) {
-    
+  function handleRemoveTask(id: string) {
+    const filteredTasks = tasks.filter(task => task.id !== id);
+    setTasks(filteredTasks);
+    setCreatedTasks(createdTasks - 1);
+
+    if (tasks.length <= 1) {
+      setHaveTask(false);
+    }
+  }
+
+  function handleNewCommentChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('');
+    setNewTaskTitle(event.target.value);
   }
 
   function Header() {
@@ -49,8 +66,9 @@ export function TaskList() {
             <input 
               type="text" 
               placeholder="Adicione uma nova tarefa"
-              onChange={(e) => setNewTaskTitle(e.target.value)}
+              onChange={handleNewCommentChange}
               value={newTaskTitle}
+              autoFocus
             />
             <button type="submit" onClick={handleCreateNewTask}>
               <div>
@@ -78,10 +96,15 @@ export function TaskList() {
         <Header />
         <ul>
           {tasks.map(task => (
-            <li className={styles.tasksContent}>
-              <input type="checkbox" />
-              <p>{task.title}</p>
-              <a href="#"><img src={trash} alt="Trash" /></a>
+            <li key={task.id} className={styles.tasksContent}>
+              <input 
+                type="checkbox"
+                readOnly
+                checked={task.isComplete}
+                onClick={() => handleToggleTaskCompletion(task.id)} 
+              />
+              <p className={task.isComplete ? 'completed' : ''}>{task.title}</p>
+              <a onClick={() => handleRemoveTask(task.id)}><img src={trash} alt="Trash" /></a>
             </li>
           ))}
         </ul>
