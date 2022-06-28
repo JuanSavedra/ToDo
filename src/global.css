@@ -6,7 +6,6 @@
   --gray-500: #262626;
   --gray-600: #1a1a1a;
   --gray-700: #0d0d0d;
-  --background: #454545;
   --purple: #8284fa;
   --purple-dark: #5e60ce;
   --blue: #4ea8de;
@@ -21,7 +20,7 @@
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--gray-600);
   color: var(--gray-300);
 }
 
