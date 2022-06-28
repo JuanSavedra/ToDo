@@ -70,3 +70,14 @@
 .contentTask .boldText {
   font-weight: bold;
 }
+
+.tasksContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: var(--gray-500);
+  border-radius: 12px;
+  gap: 1rem;
+  margin-top: 1rem;
+}
