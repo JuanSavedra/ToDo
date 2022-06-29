@@ -41,9 +41,9 @@ export function TaskList() {
     );
     
     tasks.map(task => {
-      if (task.isComplete) {
+      if (task.isComplete && task.id === id) {
         setConcludedTasks(concludedTasks - 1);
-      } else {
+      } else if (!task.isComplete && task.id === id) {
         setConcludedTasks(concludedTasks + 1);
       }
     });
