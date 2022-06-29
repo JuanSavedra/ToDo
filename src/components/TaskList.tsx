@@ -56,6 +56,14 @@ export function TaskList() {
     setTasks(filteredTasks);
     setCreatedTasks(createdTasks - 1);
 
+    tasks.map(task => {
+      if (task.isComplete && task.id === id) {
+        setConcludedTasks(concludedTasks - 1);
+      } else if (!task.isComplete && task.id === id) {
+        setConcludedTasks(concludedTasks);
+      }
+    });
+
     if (tasks.length <= 1) {
       setHaveTask(false);
     }
