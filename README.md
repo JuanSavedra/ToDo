@@ -1,5 +1,5 @@
 # ToDo
-### Desafio proporcionado pelo Ignite da Rocketseat, no qual temos que criar uma aplicação que se pode adicionar novas tarefas e marcá-las como concluídas, exibindo tudo isso em tela.
+### Desafio proporcionado pelo Ignite da Rocketseat, no qual temos que criar uma aplicação que poderá adicionar novas tarefas e marcá-las como concluídas, exibindo tudo isso em tela.
 
 ## Sobre
 ### Nessa aplicação fui desfiado a fazer uma lista de tarefas, podendo remover ou marcar como concluída alguma tarefa, 
